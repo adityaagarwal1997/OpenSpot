@@ -75,7 +75,7 @@ class userProfile : AppCompatActivity() {
 
     private fun initialize() {
         editFullName = findViewById<View>(R.id.full_name) as EditText
-        editEmail = findViewById<View>(R.id.email) as EditText
+  //      editEmail = findViewById<View>(R.id.email) as EditText
 //      editDOB = findViewById<View>(R.id.dob) as EditText
         nextButton = findViewById<View>(R.id.user_profile_button) as ImageButton
 
@@ -147,9 +147,9 @@ class userProfile : AppCompatActivity() {
         return name.contains(" ")
     }
 
-    private fun isValidEmail(email: String): Boolean {
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
+//    private fun isValidEmail(email: String): Boolean {
+//      return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+//    }
 
     private fun isValidDOB(): Boolean{
         if (mDay>31){
@@ -169,11 +169,11 @@ class userProfile : AppCompatActivity() {
 
     private fun validForm(): Boolean {
         val fullName = editFullName!!.text.toString()
-        val email = editEmail!!.text.toString()
+      //  val email = editEmail!!.text.toString()
 //        val dob = editDOB?.text.toString()
 
         //if they are empty
-        if (TextUtils.isEmpty(fullName) || TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(fullName)) {
             Toast.makeText(applicationContext, "Please fill out all information", Toast.LENGTH_LONG)
                 .show()
             return false
@@ -183,11 +183,11 @@ class userProfile : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Please enter valid Name", Toast.LENGTH_LONG)
                     .show()
                 return false
-            } else if(!isValidEmail(email)) {
+            }/*** else if(!isValidEmail(email)) {
                 Toast.makeText(applicationContext, "Please enter valid Email", Toast.LENGTH_LONG)
                     .show()
                 return false
-            } else if(!isValidDOB()) {
+            }***/ else if(!isValidDOB()) {
                 if (mYear > 2004) {
                     Toast.makeText(applicationContext, "Must be old enough to drive!", Toast.LENGTH_LONG)
                         .show()
