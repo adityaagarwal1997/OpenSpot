@@ -43,7 +43,7 @@ class EditProfile : AppCompatActivity() {
         var editEmail: EditText?
         FullName = findViewById<View>(R.id.fullNameView) as TextView
         //update email
-        editEmail = findViewById<View>(R.id.emailUpdate) as EditText
+       // editEmail = findViewById<View>(R.id.emailUpdate) as EditText
         birthday = findViewById<View>(R.id.birthdayView) as TextView
         val phoneNumber = findViewById<View>(R.id.phoneNumberView) as TextView
         phoneNumber.text = currentFirebaseUser!!.phoneNumber
@@ -55,12 +55,12 @@ class EditProfile : AppCompatActivity() {
                 if (document!=null){
                     FullName?.text = document.data!!["fullName"].toString()
                     birthday?.text = document.data!!["dateOfBirth"].toString()
-                    editEmail!!.setText(document.data!!["email"].toString())
+                //    editEmail!!.setText(document.data!!["email"].toString())
                 }}
 
     }
 
-    private fun isValidEmail(email: String): Boolean {
+ /***   private fun isValidEmail(email: String): Boolean {
         return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
@@ -74,7 +74,7 @@ class EditProfile : AppCompatActivity() {
         } else {
             return true
         }
-    }
+    }***/
 
     fun clickButton(v:View) {
         var editEmail: EditText? = findViewById(R.id.emailUpdate)
